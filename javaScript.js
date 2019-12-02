@@ -31,7 +31,8 @@ $(document).ready(function(){
 			//var output = document.getElementById('output');
 			/*for(var i=0;i<count;i++)
 			{
-				console.log(response.data.animals[i].name)
+                console.log(response.data.animals[i].name)
+                elem.insertAdjacentHTML('beforeend',response.data.animals[i].name + "<br />");
 				document.getElementById("demo").innerHTML = 'response.data.animals[i].name';
 				//output.innerHTML = response.data.animals[i].name;
 				if(Object.keys(response.data.animals[i].photos).length>0)
@@ -46,7 +47,8 @@ $(document).ready(function(){
             var elem = document.getElementById('result');
 			for(var i=0;i<count;i++)
 			{
-                elem.insertAdjacentHTML('beforeend',response.data.animals[i].name + "<br />");
+                location = response.data.animals[i].photos[0].small
+                elem.insertAdjacentHTML('beforeend',response.data.animals[i].name + '<img src="' + location + '"/>'+ "<br />");
                 //document.getElementById('print').insertAdjacentHTML('beforeend', "something added")	  
             }
             /*var mytable = "<table cellpadding=\"0\" cellspacing=\"0\"><tbody><tr>";
