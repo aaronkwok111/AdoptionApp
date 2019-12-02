@@ -45,26 +45,15 @@ $(document).ready(function(){
 			}*/
             //document.getElementById("result").innerHTML = response.data.animals[1].photos[0].full
             var elem = document.getElementById('result');
-			for(var i=0;i<count;i++)
+			/*for(var i=0;i<count;i++)
 			{
                 location = response.data.animals[i].photos[0].small
                 elem.insertAdjacentHTML('beforeend',response.data.animals[i].name + '<img src="' + location + '"/>'+ "<br />");
                 //document.getElementById('print').insertAdjacentHTML('beforeend', "something added")	  
-            }
-            /*var mytable = "<table cellpadding=\"0\" cellspacing=\"0\"><tbody><tr>";
-
-            for (var i = 1; i < 31; i++) {
-            if (i % 3 == 1 && i != 1) {
-                mytable += "</tr><tr>";
-            }
-            mytable += "<td>[" + i + "]</td>";
-            }
-
-            mytable += "</tr></tbody></table>";
-            
-            document.getElementByTagName("result").write(mytable);*/
-    		// replace text in result field with response
-    		//$('#result').text(JSON.stringify(response.data.animals[1].photos[0].full));
+            }*/
+            location = response.data.animals[0].photos[0].small
+            elem.insertAdjacentHTML('beforeend',response.data.animals[0].name + '<img src="' + location + '"/>'+ "<br />");
+           
 		})
 			.catch(function (error) {
     		// handle any errors
