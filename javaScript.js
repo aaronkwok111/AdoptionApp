@@ -28,32 +28,13 @@ $(document).ready(function(){
 			console.log(response.data.animals);
 			var count = Object.keys(response.data.animals).length
 			console.log(count);
-			//var output = document.getElementById('output');
-			/*for(var i=0;i<count;i++)
-			{
-                console.log(response.data.animals[i].name)
-                elem.insertAdjacentHTML('beforeend',response.data.animals[i].name + "<br />");
-				document.getElementById("demo").innerHTML = 'response.data.animals[i].name';
-				//output.innerHTML = response.data.animals[i].name;
-				if(Object.keys(response.data.animals[i].photos).length>0)
-				{
-					console.log(response.data.animals[i].photos[0].full);
-					//output.innerHTML = response.data.animals[i].photos[0].full;
-					
-				}
-				
-			}*/
-            //document.getElementById("result").innerHTML = response.data.animals[1].photos[0].full
+
             var elem = document.getElementById('result');
-			/*for(var i=0;i<count;i++)
+			for(var i=0;i<count;i++)
 			{
-                location = response.data.animals[i].photos[0].small
-                elem.insertAdjacentHTML('beforeend',response.data.animals[i].name + '<img src="' + location + '"/>'+ "<br />");
-                //document.getElementById('print').insertAdjacentHTML('beforeend', "something added")	  
-            }*/
-            location = response.data.animals[0].photos[0].small
-            elem.insertAdjacentHTML('beforeend',response.data.animals[0].name + '<img src="' + location + '"/>'+ "<br />");
-           
+				//insert elements into DOM using .insertAdjacentHTML() function
+                elem.insertAdjacentHTML('beforeend',"<tr> <th>" +response.data.animals[i].name+"</th>"+ "<th>"+response.data.animals[i].breeds.primary + "</th>" +"<th>"+response.data.animals[i].gender + "</th>"+ "<th>" + response.data.animals[i].url+ "<th>"+response.data.animals[i].contact.email + "</th>"+ "<th>"+response.data.animals[i].distance + "</th>"+"</th> </tr>"+ "<br></br>");  
+            }
 		})
 			.catch(function (error) {
     		// handle any errors
