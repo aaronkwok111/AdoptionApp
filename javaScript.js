@@ -34,12 +34,21 @@ $(document).ready(function(){
 			for(var i=0;i<count;i++)
 			{
 				//insert elements into DOM using .insertAdjacentHTML() function
-                elem.insertAdjacentHTML('beforeend',"<tr> <th>" + '<img src="' + response.data.animals[i].photos[0].small + '">' + "</th>"+ "<th>"+response.data.animals[i].name+"</th>"+ "<th>"+response.data.animals[i].breeds.primary + "</th>" +"<th>"+response.data.animals[i].gender + "</th>"+ "<th>" +'<a href="' + response.data.animals[i].url + '" target=' + '"_blank">Adopt Me!' + "</a>"+ "<th>"+response.data.animals[i].contact.email + "</th>"+ "<th>"+response.data.animals[i].distance + "</th>"+"</th> </tr>"+ "<br></br>");  
+                console.log(response.data.animals[i].photos.length);
+                var img_link;
+                if(response.data.animals[i].photos.length == 0){
+                    img_link = "./img/yearly-list-page-fallback.png";
+                } else {
+                    img_link = response.data.animals[i].photos[0].small;
+                }
+
+                elem.insertAdjacentHTML('beforeend',"<tr> <th>" + '<img src="' + img_link + '">' + "</th>"+ "<th>"+response.data.animals[i].name+"</th>"+ "<th>"+response.data.animals[i].breeds.primary + "</th>" +"<th>"+response.data.animals[i].gender + "</th>"+ "<th>" +'<a href="' + response.data.animals[i].url + '" target=' + '"_blank">Adopt Me!' + "</a>"+ "<th>"+response.data.animals[i].contact.email + "</th>"+ "<th>"+response.data.animals[i].distance + "</th>"+"</th> </tr>"+ "<br></br>");  
             }
 
 		})
 			.catch(function (error) {
     		// handle any errors
+            console.log("Error occured: " + error);
 		});
 	});
 });
