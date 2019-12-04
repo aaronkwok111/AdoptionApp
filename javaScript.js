@@ -30,11 +30,13 @@ $(document).ready(function(){
 			console.log(count);
 
             var elem = document.getElementById('result');
+            elem.style.visibility = "visible";
 			for(var i=0;i<count;i++)
 			{
 				//insert elements into DOM using .insertAdjacentHTML() function
-                elem.insertAdjacentHTML('beforeend',"<tr> <th>" +response.data.animals[i].name+"</th>"+ "<th>"+response.data.animals[i].breeds.primary + "</th>" +"<th>"+response.data.animals[i].gender + "</th>"+ "<th>" + response.data.animals[i].url+ "<th>"+response.data.animals[i].contact.email + "</th>"+ "<th>"+response.data.animals[i].distance + "</th>"+"</th> </tr>"+ "<br></br>");  
+                elem.insertAdjacentHTML('beforeend',"<tr> <th>" + '<img src="' + response.data.animals[i].photos[0].small + '">' + "</th>"+ "<th>"+response.data.animals[i].name+"</th>"+ "<th>"+response.data.animals[i].breeds.primary + "</th>" +"<th>"+response.data.animals[i].gender + "</th>"+ "<th>" +'<a href="' + response.data.animals[i].url + '" target=' + '"_blank">Adopt Me!' + "</a>"+ "<th>"+response.data.animals[i].contact.email + "</th>"+ "<th>"+response.data.animals[i].distance + "</th>"+"</th> </tr>"+ "<br></br>");  
             }
+
 		})
 			.catch(function (error) {
     		// handle any errors
